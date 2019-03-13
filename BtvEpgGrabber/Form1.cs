@@ -134,7 +134,7 @@ namespace BtvEpgGrabber
                     program.start = EpochTostring(result.channel.programs[j].startTime);
                     program.stop = EpochTostring(result.channel.programs[j].endTime);
                     program.title.Desc = result.channel.programs[j].programName;
-                    //program.desc.Desc = result.channel.programs[j].programName + "\n" + result.channel.programs[j].mainGenreName + "\n" + result.channel.programs[j].actorName;
+                    program.desc.Desc = result.channel.programs[j].programName + "\n" + result.channel.programs[j].mainGenreName + "\n" + result.channel.programs[j].actorName;
                     program.category.Desc = result.channel.programs[j].mainGenreName;
                     program.credits.actor = result.channel.programs[j].actorName;
                     program.credits.director = result.channel.programs[j].directorName;
