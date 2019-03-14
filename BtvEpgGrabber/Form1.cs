@@ -204,7 +204,7 @@ namespace BtvEpgGrabber
         {
             double sec = Convert.ToDouble(epoch);
 
-            string timestr = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds(sec).ToString("yyyyMMddHHmmss");
+            string timestr = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds(sec).ToLocalTime().ToString("yyyyMMddHHmmss");
 
             if (checkBoxAddTime.Checked == true)
             {
