@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -58,7 +59,14 @@ namespace BtvEpgGrabber
             string daystr = mIni.IniReadValue("Config", numericUpDownDay.Name);
             numericUpDownDay.Value = daystr.Length == 0 ? 1 : Convert.ToInt32(daystr);
 
+            //Run after Generates
+            if (mIni.IniReadValue("Config", checkBoxRun.Name) == "true")
+                checkBoxRun.Checked = true;
 
+            string RunPath = mIni.IniReadValue("Config", textBoxRun.Name);
+
+            if (RunPath != null && RunPath.Length > 0)
+                textBoxRun.Text = RunPath;
         }
 
         private void MakeChannelBtn_Click(object sender, EventArgs e)
@@ -179,6 +187,15 @@ namespace BtvEpgGrabber
                     file.CopyTo(textBoxCopyPath.Text, true);
 
                     AppendLog("자동 복사 완료");
+                }
+            }
+
+            if (checkBoxRun.Checked == true)
+            {
+                FileInfo file = new FileInfo(mIni.IniReadValue("Config", textBoxRun.Name));
+                if (file.Exists)
+                {
+                    Process.Start(file.FullName);
                 }
             }
 
@@ -306,6 +323,22 @@ namespace BtvEpgGrabber
         private void numericUpDownDay_ValueChanged(object sender, EventArgs e)
         {
             mIni.IniWriteValue("Config", numericUpDownDay.Name, numericUpDownDay.Value.ToString());
+        }
+
+        private void buttonSelectPathRun_Click(object sender, EventArgs e)
+        {
+            string fileName;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "실행 파일을 선택하세요.";
+            openFileDialog.Filter = "All File(*.*)|*.*";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                fileName = openFileDialog.FileName;
+
+                mIni.IniWriteValue("Config", textBoxRun.Name, fileName);
+                textBoxRun.Text = fileName;
+            }
         }
     }
 }

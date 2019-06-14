@@ -41,13 +41,16 @@
             this.numericUpDownDay = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxCopyPath = new System.Windows.Forms.TextBox();
+            this.checkBoxRun = new System.Windows.Forms.CheckBox();
+            this.textBoxRun = new System.Windows.Forms.TextBox();
+            this.buttonSelectPathRun = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDay)).BeginInit();
             this.SuspendLayout();
             // 
             // MakeChannelBtn
             // 
-            this.MakeChannelBtn.Location = new System.Drawing.Point(54, 319);
+            this.MakeChannelBtn.Location = new System.Drawing.Point(54, 405);
             this.MakeChannelBtn.Name = "MakeChannelBtn";
             this.MakeChannelBtn.Size = new System.Drawing.Size(112, 31);
             this.MakeChannelBtn.TabIndex = 0;
@@ -57,7 +60,7 @@
             // 
             // buttonMakeEpg
             // 
-            this.buttonMakeEpg.Location = new System.Drawing.Point(229, 362);
+            this.buttonMakeEpg.Location = new System.Drawing.Point(229, 448);
             this.buttonMakeEpg.Name = "buttonMakeEpg";
             this.buttonMakeEpg.Size = new System.Drawing.Size(125, 38);
             this.buttonMakeEpg.TabIndex = 1;
@@ -128,7 +131,7 @@
             // checkBoxAddTime
             // 
             this.checkBoxAddTime.AutoSize = true;
-            this.checkBoxAddTime.Location = new System.Drawing.Point(54, 284);
+            this.checkBoxAddTime.Location = new System.Drawing.Point(54, 275);
             this.checkBoxAddTime.Name = "checkBoxAddTime";
             this.checkBoxAddTime.Size = new System.Drawing.Size(111, 16);
             this.checkBoxAddTime.TabIndex = 10;
@@ -177,11 +180,43 @@
             this.textBoxCopyPath.TabIndex = 13;
             this.textBoxCopyPath.Text = "C:\\epg.xml";
             // 
+            // checkBoxRun
+            // 
+            this.checkBoxRun.AutoSize = true;
+            this.checkBoxRun.Location = new System.Drawing.Point(54, 315);
+            this.checkBoxRun.Name = "checkBoxRun";
+            this.checkBoxRun.Size = new System.Drawing.Size(116, 16);
+            this.checkBoxRun.TabIndex = 14;
+            this.checkBoxRun.Text = "생성 후 자동실행";
+            this.checkBoxRun.UseVisualStyleBackColor = true;
+            this.checkBoxRun.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
+            // 
+            // textBoxRun
+            // 
+            this.textBoxRun.Location = new System.Drawing.Point(69, 339);
+            this.textBoxRun.Name = "textBoxRun";
+            this.textBoxRun.ReadOnly = true;
+            this.textBoxRun.Size = new System.Drawing.Size(395, 21);
+            this.textBoxRun.TabIndex = 16;
+            // 
+            // buttonSelectPathRun
+            // 
+            this.buttonSelectPathRun.Location = new System.Drawing.Point(482, 337);
+            this.buttonSelectPathRun.Name = "buttonSelectPathRun";
+            this.buttonSelectPathRun.Size = new System.Drawing.Size(75, 23);
+            this.buttonSelectPathRun.TabIndex = 15;
+            this.buttonSelectPathRun.Text = "...";
+            this.buttonSelectPathRun.UseVisualStyleBackColor = true;
+            this.buttonSelectPathRun.Click += new System.EventHandler(this.buttonSelectPathRun_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 423);
+            this.ClientSize = new System.Drawing.Size(610, 512);
+            this.Controls.Add(this.textBoxRun);
+            this.Controls.Add(this.buttonSelectPathRun);
+            this.Controls.Add(this.checkBoxRun);
             this.Controls.Add(this.textBoxCopyPath);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numericUpDownDay);
@@ -221,6 +256,9 @@
         private System.Windows.Forms.NumericUpDown numericUpDownDay;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxCopyPath;
+        private System.Windows.Forms.CheckBox checkBoxRun;
+        private System.Windows.Forms.TextBox textBoxRun;
+        private System.Windows.Forms.Button buttonSelectPathRun;
     }
 }
 
